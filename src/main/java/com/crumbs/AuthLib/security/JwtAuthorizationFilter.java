@@ -50,7 +50,6 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     .verify(token.replace(TOKEN_PREFIX, ""));
             String user = jwt.getSubject();
             Claim claim = jwt.getClaim("role");
-            System.out.println(claim.asString().toUpperCase());
             Authority authority = new Authority(claim.asString().toUpperCase());
             List<Authority> authCollection = new ArrayList<>();
             authCollection.add(authority);
